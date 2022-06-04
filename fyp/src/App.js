@@ -5,9 +5,9 @@ import {About, Blog, Features, Footer} from "./containers"
 const App = () => {
   return (
     <div>
-      <Brand/>
       <About/>
       <Features/>
+      <Brand/>
       <Blog/>
       <Footer/>
     </div>
