@@ -3,7 +3,7 @@ import "./brand.css"
 import { Toyota, Honda, Suzuki, Lexus, Nissan } from './imports.js'
 const Brand = () => {
   return (
-    <div className='proj__brand section__padding'>
+    <div className='proj__brand'>
       <div>
         <img src={Toyota} alt="Toyota"/>
       </div>

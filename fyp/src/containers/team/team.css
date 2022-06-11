@@ -1,0 +1,11 @@
+.proj__team{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.proj__team div{
+    margin-right: 20px;
+    margin-top: 10px;
+}
