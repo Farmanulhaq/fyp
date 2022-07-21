@@ -8,8 +8,7 @@ import cars from '../../others/movingCars.mp4'
 
 
 const Video = () => {
-  const [modal, setmodal] = React.useState(false)
-  const [show, setShow] = useState(false);
+ 
   return (
     <div className='hero'>
       <video autoPlay loop muted id='video'>
@@ -29,7 +28,7 @@ const Video = () => {
             Sign Up
             <span aria-hidden class="cybr-btn__glitch">Sign Up</span>
           </button>
-          <button class="cybr-btn" onClick={() => setmodal(true)}>
+          <button class="cybr-btn">
             Sign In
             <span aria-hidden class="cybr-btn__glitch">Sign In</span>
           </button>
@@ -37,10 +36,6 @@ const Video = () => {
           <Link to='/signUp' className='btn btn-dark'>SignUP</Link> */}
         </div>
       </div>
-
-      <Modal show={show} onClose={() => setShow(false)}>
-        <h1> Hello World! </h1>
-      </Modal>
 
       
       {/* <Modal size='lg' isOpen={modal} toggle={() => setmodal(!modal)}>
