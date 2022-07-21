@@ -37,11 +37,6 @@ const Video = () => {
           <Link to='/signUp' className='btn btn-dark'>SignUP</Link> */}
         </div>
       </div>
-
-      <Modal show={show} onClose={() => setShow(false)}>
-        <h1> Hello World! </h1>
-      </Modal>
-
       
       {/* <Modal size='lg' isOpen={modal} toggle={() => setmodal(!modal)}>
         <ModalHeader toggle={() => setmodal(!modal)}>
