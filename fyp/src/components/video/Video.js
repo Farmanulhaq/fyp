@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 // import { Form, Modal, ModalBody, ModalHeader, Row, Col } from 'reactstrap';
 import './Video.css'
 import 'bootstrap/dist/css/bootstrap.css'
-import Modal from '../Modal/modal'
+import Modal from '../modal/Modal'
 
 import cars from '../../others/movingCars.mp4'
 
 
 const Video = () => {
-  const [modal, setmodal] = React.useState(false)
-  const [show, setShow] = useState(false);
+ 
+
+ const [openModal, setOpenModal] = useState(false); 
+  
   return (
     <div className='hero'>
       <video autoPlay loop muted id='video'>
@@ -25,14 +27,16 @@ const Video = () => {
             Verify
             <span aria-hidden class="cybr-btn__glitch">Verify</span>
           </button>
-          <button class="cybr-btn">
+          <button class="cybr-btn"
+          onClick={()=> {setOpenModal(true)}}>
             Sign Up
             <span aria-hidden class="cybr-btn__glitch">Sign Up</span>
           </button>
-          <button class="cybr-btn" onClick={() => setmodal(true)}>
+          <button onClick={()=> setOpenModal(true)} class="cybr-btn">
             Sign In
             <span aria-hidden class="cybr-btn__glitch">Sign In</span>
           </button>
+          {openModal && <Modal closeModal={setOpenModal} />}
           {/* <Link to='/signIn' className='btn btn-dark'>SignIn</Link>
           <Link to='/signUp' className='btn btn-dark'>SignUP</Link> */}
         </div>

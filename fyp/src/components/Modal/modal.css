@@ -1,39 +1,39 @@
-.modalWrapper {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: #505050;
+.App {
+    background-color: white;
+  }
+  
+  .Auth-form-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
   }
   
-  .modal {
-    min-width: 400px;
-    min-height: 300px;
-    background: white;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    animation: fadeInDown 0.8s;
-  }
-  .btnClose {
-    position: absolute;
-    top: 8px;
-    right: 8px;
+  .Auth-form {
+    width: 420px;
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    background-color: white;
   }
   
-  @keyframes fadeInDown {
-    0% {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .Auth-form-content {
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+  
+  .Auth-form-title {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 24px;
+    color: rgb(34, 34, 34);
+    font-weight: 800;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(34, 34, 34);
   }

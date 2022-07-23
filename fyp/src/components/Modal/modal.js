@@ -1,20 +1,49 @@
 import React from 'react'
-import styles from './modal.css'
+import '../../others/usetailwinstyles.css'
+import 'flowbite'
 
-const Modal = ({ show, onClose, children }) => {
-    if (!show) {
-      return null;
-    }
-  
+
+const Modal = ({ closeModal }) => {
+
     return (
-      <div className={styles.modalWrapper}>
-        <div className={styles.modal}>
-          <button onClick={onClose} className={`${styles.btnClose} btn-close`} />
-          {children}
+        <div className="Auth-form-container">
+            <form className="Auth-form">
+                <div className="Auth-form-content">
+                    <h3 className="Auth-form-title">Sign In</h3>
+                    <div className="form-group mt-3">
+                        <label>Email address</label>
+                        <input
+                            type="email"
+                            className="form-control mt-1"
+                            placeholder="Enter email"
+                        />
+                    </div>
+                    <div className="form-group mt-3">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            className="form-control mt-1"
+                            placeholder="Enter password"
+                        />
+                    </div>
+                    <div className="d-grid gap-2 mt-3">
+                        <button type="submit" className="btn btn-primary">
+                            Submit
+                        </button>
+                        <button type="submit" className="btn btn-danger">
+                            Sign In With Google
+                        </button>
+                        <button onClick={() => closeModal(false)} type="submit" className="btn btn-warning">
+                            Close
+                        </button>
+                    </div>
+                    {/* <p className="forgot-password text-right mt-2">
+                        Forgot <a href="#">password?</a>
+                    </p> */}
+                </div>
+            </form>
         </div>
-      </div>
-    );
-  };
-  
-  export default Modal;
-  
+    )
+}
+
+export default Modal
