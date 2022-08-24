@@ -7,6 +7,7 @@ import Car from './components/car/car'
 import Team from './components/team/Team'
 import Video from './components/video/Video';
 import Signup from './components/signup/signup';
+import Verify from './components/verify/verify';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -34,6 +35,9 @@ function App() {
         </Routes>
          <Routes>
           <Route exact path='/login' element={<Login />} />
+        </Routes>
+        <Routes>
+          <Route exact path='/verify' element={<Verify />} />
         </Routes>
         <Routes>
           <Route exact path='/signup' element={<Signup />} />

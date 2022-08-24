@@ -23,7 +23,7 @@ const Video = () => {
         <p>100% Authentic vehicles verification through BlockChain</p>
 
         <div>
-          <button class="cybr-btn">
+          <button class="cybr-btn" onClick={() => {nav('/verify')}}>
             Verify
             <span aria-hidden class="cybr-btn__glitch">Verify</span>
           </button>
@@ -33,7 +33,7 @@ const Video = () => {
           </button>
           <button onClick={() => {nav('/login')}} class="cybr-btn" to="/signin">
             Sign In
-            <span aria-hidden class="cybr-btn__glitch">Sign In</span>
+            <span aria-hidden  class="cybr-btn__glitch">Sign In</span>
           </button>
 
           {/* <Link to='/signIn' className='btn btn-dark'>SignIn</Link>
