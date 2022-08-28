@@ -8,6 +8,7 @@ import Team from './components/team/Team'
 import Video from './components/video/Video';
 import Signup from './components/signup/signup';
 import Verify from './components/verify/verify';
+import MainScreen from './components/mainscreen/MainScreen';
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -19,21 +20,27 @@ import './App.css';
 import Footer from './components/footer/Footer';
 import Login from './components/login/Login';
 import Welcome from './components/welcome/welcome';
+import PrivateRoute from './routing/PrivateRoutes';
 
 function App() {
 
   return (
     <>
       <Router>
-      <Routes>
-          <Route path='/welcome' element={<Welcome />}/>
-          <Route path='/' element={<Home />}/>
-        </Routes>
-        
+
+        {/* <Routes>
+          <PrivateRoute path="/" element={MainScreen}/>
+        </Routes> */}
         <Routes>
-        <Route path = '/' element={<Video/>}/>
+          <Route path='/welcome' element={<Welcome />} />
+          <Route path='/' element={<Home />} />
+
         </Routes>
-         <Routes>
+
+        <Routes>
+          <Route path='/' element={<Video />} />
+        </Routes>
+        <Routes>
           <Route exact path='/login' element={<Login />} />
         </Routes>
         <Routes>
@@ -43,25 +50,25 @@ function App() {
           <Route exact path='/signup' element={<Signup />} />
         </Routes>
         <Routes>
-          <Route path='/' element={<About />}/>
+          <Route path='/' element={<About />} />
         </Routes>
         <Routes>
-          <Route path='/' element={<Car />}/>
+          <Route path='/' element={<Car />} />
         </Routes>
         <Routes>
-          <Route path='/' element={<Brand />}/>
+          <Route path='/' element={<Brand />} />
         </Routes>
         <Routes>
-          <Route path='/' element={<Car />}/>
+          <Route path='/' element={<Car />} />
         </Routes>
         <Routes>
-          <Route path='/' element={<Blogs />}/>
+          <Route path='/' element={<Blogs />} />
         </Routes>
         <Routes>
-          <Route path='/' element={<Team />}/>
+          <Route path='/' element={<Team />} />
         </Routes>
         <Routes>
-          <Route path='/' element={<Footer />}/>
+          <Route path='/' element={<Footer />} />
         </Routes>
 
       </Router>
