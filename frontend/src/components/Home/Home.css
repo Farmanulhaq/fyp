@@ -1,0 +1,128 @@
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 1s linear;
+    }
+  }
+  
+  body{
+    background-color: #141414ea;
+  }
+
+.header .myUL{
+
+  color: white;
+
+}
+  
+.navbar{
+  background:grey !important;
+  opacity: .8;
+}
+  
+  /* @media (min-width: 1080px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+    .navbar .navbar-collapse {
+        text-align: center;
+    }
+  } */
+  .pic
+  {
+    height: 130px;
+    background: none;
+    margin-top: -25px;
+    margin-bottom: -15px;
+  }
+  @media screen and (max-width: 480px) {
+    .navbar .navbar-nav {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+  
+    .navbar .navbar-collapse{
+        text-align: center;
+    }
+  
+    .pic{
+      margin-top: -50px;
+      margin-left: 107px;
+      /* margin-bottom: 20px; */
+    }
+  }
+
+  
+  .navbar-nav li
+  {
+ 
+    position: relative;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    font-weight: bolder !important;
+    margin-right: 25px;
+    background-color: linear-gradient(rgb(219, 166, 166), rgb(0, 0, 172)) !important;
+  }
+  li .active::after
+  {
+    content : "";
+    position: absolute;
+    background-color: red;
+    height: 3px ;
+    width: 100% !important ;
+    left: 0;
+    bottom: 0px;
+    transition: 0.5s;
+
+    ;
+    
+  } 
+  /* .active
+  {
+    color: white ;
+  }
+   */
+
+ .nav-link .active::after
+  {
+    content : "";
+    position: absolute;
+    background-color: red !important;
+    height: 3px;
+    left: 0;
+    bottom:0;
+    transition: 0.5s;
+    ;
+  } 
+  .navbar-nav .nav-item a:hover
+  {
+    color: aqua!important;
+  }
+  
+  .navbar-nav li a:hover:after
+  {
+    width: 100%;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+  }
+  
+  .navbar-toggler {
+    border-color: rgb(255,102,203) !important;
+  } 
+.nav-item{
+  margin: auto;
+  padding-left: 0px;
+
+
+}
+
+.nav-link
+{
+  color: whitesmoke!important;
+}
+
