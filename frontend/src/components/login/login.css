@@ -13,6 +13,14 @@ body {
 	min-height: 120vh;
 	margin-bottom: -150px;
 }
+
+.successText {
+	color : green;
+}
+
+.dangerText {
+	color: red;
+}
 .screen {		
 	grid-column: span 2;
 	background: linear-gradient(90deg, #1907a0, #070244);	

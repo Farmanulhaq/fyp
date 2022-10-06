@@ -76,7 +76,7 @@ const Signin = ({history}) => {
 	<div class="screen">
 		<div class="screen__content">
 			<form onSubmit={loginHandler} class="login">
-			{error && <span className='error-message'>{error}</span>}
+			{error && <span className='dangerText error-message'>{error}</span>}
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
 					<input type="text" class="login__input" placeholder="Enter Email" 
