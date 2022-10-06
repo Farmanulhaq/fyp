@@ -17,12 +17,13 @@ const Signup = ({history}) => {
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 	const [error, setError] = useState("");
+	const [message, setMessage] = useState("");
 
-	useEffect(() => {
-		if(localStorage.getItem("authToken")){
-			history.push("/login")
-		}
-	}, [history])
+	// useEffect(() => {
+	// 	if(localStorage.getItem("authToken")){
+	// 		history.push("/login")
+	// 	}
+	// }, [history])
 
 	const registerHandler = async (e) => {
 		e.preventDefault();
@@ -39,8 +40,13 @@ const Signup = ({history}) => {
 					setError(data.error);
 				}
 				else{
-					localStorage.setItem("authToken", data.token);
-					history.push("/login")
+					//localStorage.setItem("authToken", data.token);
+					//history.push("/login")
+					setMessage("Account Created Successfully!");
+					setTimeout(() => {
+						setMessage("");
+					}, 3000)
+					
 				}
 
 				
@@ -49,7 +55,7 @@ const Signup = ({history}) => {
 				setError(error.response.data.error);
 				setTimeout(() => {
 					setError("");
-				}, 5000);
+				}, 3000);
 			}
 	}
 	
@@ -70,7 +76,8 @@ const Signup = ({history}) => {
 				<div class="screen">
 					<div class="screen__content">
 						<form onSubmit={registerHandler} class="login">
-							{error && <span className='error-message'>{error}</span>}
+							{error && <span className='dangerText error-message'>{error}</span>}
+							{message && <span className='successText error-message'>{message}</span>}
 							{/* <div class="login__field">
 					<i class="login__icon fas fa-user"></i>
 					<input type="text" class="login__input" placeholder="First Name" required></input>

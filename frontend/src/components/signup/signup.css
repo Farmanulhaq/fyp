@@ -12,6 +12,14 @@ body {
 	justify-content: center;
 	min-height: 100vh;
 }
+
+.successText {
+	color : green;
+}
+
+.dangerText {
+	color: red;
+}
 .screen {		
 	grid-column: span 2;
 	background: linear-gradient(90deg, #250ddf, #070244);	

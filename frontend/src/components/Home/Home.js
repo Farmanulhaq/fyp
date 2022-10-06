@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useEffect, useState} from 'react';
 import { Link } from 'react-scroll';
 import './Home.css'
 import pic from '../../others/vc.png'
@@ -10,7 +10,21 @@ const Home = () => {
   let nav = useNavigate()
 
   const [click, setClick] = useState(false)
+  const[showLogout, setLogout] = useState(false);
   const closeMenu = () => setClick(false)
+  useEffect(() => {
+    if(localStorage.getItem("authToken")){
+      setLogout(true)
+    }
+  })
+
+
+
+  const logoutHandler = () => {
+    localStorage.removeItem("authToken");
+    window.location.reload();
+    nav('/welcome');
+  }
   return (
     <div >
         <nav class="navbar navbar-expand-lg navbar-light bg-secondary fixed-top ">
@@ -45,6 +59,11 @@ const Home = () => {
           <li class="nav-item  ">
             <Link to="contact" spy={true} smooth={true} offset={-100} dunpmration={500} class="nav-link nav-content" >Contact Us</Link>
           </li>
+          {showLogout ?
+          <li class="nav-item  ">
+            <Link to="" onClick={logoutHandler} spy={true} smooth={true} offset={-100} dunpmration={500} class="nav-link nav-content active" >Logout</Link>
+          </li> : null
+           }
         </ul>
 
         </div>

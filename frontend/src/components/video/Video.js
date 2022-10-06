@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Video.css'
 
@@ -11,6 +11,14 @@ import cars from '../../others/movingCars.mp4'
 const Video = () => {
   
   let nav = useNavigate()
+  const [showSignUpButton, setShowSignUpButton] = useState(true)
+  const [showLogInButton, setShowLogInButton] = useState(true)
+  useEffect(() => {
+      if(localStorage.getItem("authToken")){
+        setShowSignUpButton(false);
+        setShowLogInButton(false);
+      }
+  })
 
   return (
     <div className='hero' id='home'>
@@ -26,16 +34,17 @@ const Video = () => {
           <button class="cybr-btn" onClick={() => {nav('/verify')}}>
             Verify
             <span aria-hidden class="cybr-btn__glitch">Verify</span>
-          </button>
+          </button> 
+          { showSignUpButton ? 
           <button onClick={() => {nav('/signup')}} class="cybr-btn">
             Sign Up
             <span aria-hidden class="cybr-btn__glitch">Sign Up</span>
-          </button>
+          </button> : null }
+          { showLogInButton ?
           <button onClick={() => {nav('/login')}} class="cybr-btn" to="/signin">
             Sign In
             <span aria-hidden  class="cybr-btn__glitch">Sign In</span>
-          </button>
-
+          </button> : null }
           {/* <Link to='/signIn' className='btn btn-dark'>SignIn</Link>
           <Link to='/signUp' className='btn btn-dark'>SignUP</Link> */}
         </div>

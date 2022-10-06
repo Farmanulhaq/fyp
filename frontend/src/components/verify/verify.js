@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
 import Footer from '../footer/Footer';
 import './verify.css'
@@ -6,6 +6,12 @@ import './verify.css'
 const Verify = () => {
 
     let nav = useNavigate()
+
+	useEffect(() => {
+		if(!localStorage.getItem("authToken")){
+			nav('/login');
+		}
+	})
 
   return (
     <>

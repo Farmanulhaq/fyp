@@ -20,7 +20,7 @@ const Signin = ({history}) => {
 
 	useEffect(() => {
 		if(localStorage.getItem("authToken")){
-			nav('/Home')
+			nav('/welcome')
 		}
 	}, [history])
 
@@ -42,7 +42,7 @@ const Signin = ({history}) => {
 			}
 			else{
 				localStorage.setItem("authToken", data.token);
-				nav('/Home')
+				nav('/welcome')
 			}
 
 			
@@ -79,7 +79,7 @@ const Signin = ({history}) => {
 			{error && <span className='error-message'>{error}</span>}
 				<div class="login__field">
 					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email" 
+					<input type="text" class="login__input" placeholder="Enter Email" 
 					required
 					id='loginemail'
 					value={email}
