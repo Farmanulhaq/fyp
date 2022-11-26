@@ -16,6 +16,17 @@ const userSchema = new mongoose.Schema({
             "Please fill a valid email address",
         ]
     },
+    name:{
+        type : String,
+        default : null
+    },
+    subject:{
+        type : String
+    },
+    message:{
+        type : String,
+        required : true
+    },
     password: {
         type: String,
         required: [true, "Please add password"],

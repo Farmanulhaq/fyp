@@ -17,6 +17,7 @@ export const register = async (req, res, next) => {
                 confirmPassword
             });
             sendTokenToUser(user, 201, res)
+
         }
        else {
         res.status(400).json({
@@ -37,7 +38,7 @@ export const login = async (req, res, next) => {
     if (!email || !password) {
         res.status(401).json({
             success: false,
-            error: "Please enter email and password"
+            error: "Invalid username or password!"
         });
     }
 
@@ -50,18 +51,21 @@ export const login = async (req, res, next) => {
                 success: false,
                 error: "User not found!"
             });
+        } else{
+            const _isValid = await bcrypt.compare(req.body.password, user.password);
+            sendTokenToUser(user, 200, res)
+            // if (!_isValid) {
+            //     res.status(404).json({
+            //         success: false,
+            //         error: "Invalid credentials"
+            //     });
+            // } else{
+            //     sendTokenToUser(user, 200, res)
+            // }
         }
 
-        const _isValid = await bcrypt.compare(req.body.password, user.password);
 
-        if (!_isValid) {
-            res.status(404).json({
-                success: false,
-                error: "Invalid credentials"
-            });
-        }
 
-        sendTokenToUser(user, 200, res)
     } catch (error) {
         res.status(500).json({
             success: false,
@@ -161,7 +165,8 @@ const sendTokenToUser = (user, statusCode, res) => {
     });
     res.status(statusCode).json({
         success: true,
-        token
+        token,
+        //  message: "Account Created Successfully!"
     })
 }
 
