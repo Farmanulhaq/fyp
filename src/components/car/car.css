@@ -1,0 +1,211 @@
+.road
+{
+    margin-top: 20px;
+    width: 100%;
+    height: 150px;
+    background: rgb(61, 61, 61) !important;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.road::before
+{
+    content: '';
+    /* position: absolute; */
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg,#fff,#fff,80%,transparent 50%,transparent 100%);
+    background-size: 50px;
+    animation: animate_road 0.125s linear infinite;
+}
+
+@keyframes animate_road
+{
+    0%
+    {
+        background-position: 50px 0;
+    }
+    100%
+    {
+        background-position:  0 0;
+    }
+}
+
+.vehicle
+{
+    position: absolute;
+    width: 220px;
+    height: 90px;
+    background: red;
+    border-radius: 10px;
+    box-shadow: -10px 10px rgba(0, 0, 0, 0.25);
+    transform-style: preserve-3d;
+    perspective: 800px;
+    animation: animate_vehicle 2s linear infinite;
+}
+
+.vehicle::before
+{
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 2px;
+    width: 5px;
+    height: 15px;
+    border-radius: 2px;
+    background-color: aqua;
+    box-shadow: 0 42px aqua;
+
+}
+
+.vehicle::after
+{
+    content: '';
+    position: absolute;
+    top: 13px;
+    right: 2px;
+    width: 6px;
+    height: 16px;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 44px #fff;
+}
+
+.vehicle span
+{
+    position: absolute;
+    inset: 5px 10px;
+    background: rgb(182, 72, 72);
+    border-radius: 10px;
+}
+
+.vehicle span b
+{
+    position: absolute;
+    inset: 0 20px;
+    background:black;
+    border-radius: 10px;
+}
+
+.vehicle span b::before
+{
+    content: '';
+    position: absolute;
+    inset: 6px 25px;
+    background-color:rgb(182, 72, 72) ;
+    border-radius: 5px;
+}
+
+.vehicle span b::after
+{
+    content: '';
+    position: absolute;
+    inset: 0px 78px;
+    background-color:rgb(182, 72, 72) ;
+}
+
+.vehicle span i
+{
+    position: absolute;
+    inset: 0;
+}
+
+.vehicle span i::before
+{
+    content: '';
+    position: absolute;
+    top: 9px !important;
+    left: 22px !important;
+    width: 40px;
+    height: 4px;
+    background: rgb(182, 72, 72);
+    inset: 0;
+    transform-origin: right !important;
+    transform: rotate(15deg);
+    box-shadow: 130px 34px rgb(182, 72, 72) !important;
+}
+
+.vehicle span i::after
+{
+    content: '';
+    position: absolute;
+    margin-top : 67px !important ;
+    left: 24px !important;
+    width: 37px;
+    height: 4px;
+    background: rgb(182, 72, 72);
+    inset: 0;
+    transform-origin: right;
+    transform: rotate(-15deg);
+    box-shadow: 130px -34px rgb(182, 72, 72) !important;
+}
+
+.vehicle .light
+{
+    position: absolute;
+    top: 5px;
+    right: -2px;
+    width: 10px;
+    height: 80px;
+    background: #0002;
+    border-radius: 15px;
+    transform-style: preserve-3d;
+    
+  
+
+}
+@keyframes animate_vehicle
+{
+    0%
+    {
+        transform: translateX(20px) translateY(-20px);
+    }
+    25%
+    {
+        transform: translateX(-10px) translateY(0px);
+    }
+    50%
+    {
+        transform: translateX(20px) translateY(20px);
+    }
+    75%
+    {
+        transform: translateX(-10px) translateY(0px);
+    } 
+    100%
+    {
+        transform: translateX(20px) translateY(-20px);
+    }
+}
+
+.vehicle .light::before
+{
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0px;
+    width: 150px;
+    height: 16px;
+    background: linear-gradient(90deg, #fff6, transparent);
+    transform-origin: left;
+    transform: perspective(500px) rotateY(-50deg);
+
+
+}
+
+.vehicle .light:after
+{
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    left: 0px;
+    width: 150px;
+    height: 16px;
+    background: linear-gradient(90deg, #fff6, transparent);
+    transform-origin: left;
+    transform: perspective(500px) rotateY(-50deg);
+
+
+}
