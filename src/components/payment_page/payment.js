@@ -1,5 +1,5 @@
 import React from 'react';
-import React, { useEffect } from 'react'
+// import React, { useEffect } from 'react'
 import Footer from '../footer/Footer';
 import './payment.css'
 
@@ -111,4 +111,4 @@ const payment = () => {
 
 }
 
-export default Payment;
+export default payment;
