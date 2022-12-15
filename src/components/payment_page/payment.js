@@ -1,22 +1,81 @@
 import React from 'react';
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+
 import {useNavigate} from 'react-router-dom'
 import './payment.css'
 
-const payment = () => {
+const Payment = () => {
+
+
+
+    const [cardHolderName, setcardHolderName] = useState("");
+	const [cardNumber, setcardNumber] = useState("");
+	const [cvv, setCVV] = useState("");
+	const [expMonth, setExpMonth] = useState("");
+    const [expYear, setExpYear] = useState("");
+	const [error, setError] = useState("");
+	const [message, setMessage] = useState("");
+
+    const paymentHandler = async (e) => {
+		e.preventDefault();
+		const config = {
+			header:{
+				"Content-Type" : "application/json",
+			}
+		}
+			try {
+				const {data} = await axios.post("http://localhost:5000/api/auth/addCard", {cardHolderName, cardNumber, expMonth, expYear,cvv},
+				config)
+
+				if(data.success === false){
+					setError(data.error);
+				}
+				else{
+					//localStorage.setItem("authToken", data.token);
+					//history.push("/login")
+					setMessage("Card Added Successfully!");
+					setTimeout(() => {
+						setMessage("");
+					}, 3000)
+					
+				}
+
+				
+				
+			} catch (error) {
+				setError(error.response.data.error);
+				setTimeout(() => {
+					setError("");
+				}, 3000);
+			}
+	}
+
     return(
         <>
   <div class="wrapper">
-        <form action="" >
+        <form action="" onSubmit={paymentHandler}>
+        {error && <span className='dangerText error-message'>{error}</span>}
+		{message && <span className='successText error-message'>{message}</span>}
+        {/* {error && <span className='dangerText error-message'>{error}</span>}
+		{message && <span className='successText error-message'>{message}</span>} */}
             <h4>Account</h4>
             <div class="input_group">
                 <div class="input_box">
-                    <input type="text" placeholder="Full Name" required class="name"></input>
+                    <input type="text" 
+                    placeholder="Full Name" 
+                    required class="name"
+                    id='name'
+					value={cardHolderName}
+					onChange={(e) => setcardHolderName(e.target.value)}
+                    ></input>
                     <i class="fa fa-user icon"></i>
                 </div>
                 <div class="input_box">
-                    <input type="text" placeholder="Name on Card" required class="name"></input>
+                    <input type="text" 
+                    placeholder="Name on Card" 
+                    required class="name"
+                    ></input>
                     <i class="fa fa-user icon"></i>
                 </div>
             </div>
@@ -70,25 +129,54 @@ const payment = () => {
             </div>
             <div class="input_group">
                 <div class="input_box">
-                    <input type="tel" name="" class="name" placeholder="Card Number 1111-2222-3333-4444" required></input>
+                    <input type="text" name="" 
+                    class="name" 
+                    placeholder="Card Number 1111-2222-3333-4444" 
+                    required
+                    id='cardNumber'
+					value={cardNumber}
+					onChange={(e) => setcardNumber(e.target.value)}
+                    ></input>
                     <i class="fa fa-credit-card icon"></i>
                 </div>
             </div>
             <div class="input_group">
                 <div class="input_box">
-                    <input type="tel" name="" class="name" placeholder="Card CVC 632" required></input>
+                    <input type="tel" name="" 
+                    class="name" 
+                    placeholder="Card CVC 632" required
+                    id='cvv'
+					value={cvv}
+					onChange={(e) => setCVV(e.target.value)}
+                    ></input>
                     <i class="fa fa-user icon"></i>
                 </div>
             </div>
             <div class="input_group">
                 <div class="input_box">
                     <div class="input_box">
-                        <input type="number" placeholder="Exp Month" required class="name"></input>
+                        <input type="number" 
+                        placeholder="Exp Month" 
+                        required 
+                        class="name"
+                        id='expmonth'
+                        value={expMonth}
+                        onChange={(e) => setExpMonth(e.target.value)}
+                        ></input>
                         <i class="fa fa-calendar icon" aria-hidden="true"></i>
                     </div>
                 </div>
                 <div class="input_box">
-                    <input type="number" placeholder="Exp Year" required class="name"></input>
+                    <input type="number" 
+                    placeholder="Exp Year" 
+                    required
+                    class="name"
+                    id='expyear'
+					value={expYear}
+					onChange={(e) => setExpYear(e.target.value)}
+                    >
+                    
+                    </input>
                     <i class="fa fa-calendar-o icon" aria-hidden="true"></i>
                 </div>
             </div>
@@ -112,4 +200,4 @@ const payment = () => {
 
 }
 
-export default payment;
+export default Payment;
