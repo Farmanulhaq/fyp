@@ -54,14 +54,14 @@ export const login = async (req, res, next) => {
         } else{
             const _isValid = await bcrypt.compare(req.body.password, user.password);
             sendTokenToUser(user, 200, res)
-            // if (!_isValid) {
-            //     res.status(404).json({
-            //         success: false,
-            //         error: "Invalid credentials"
-            //     });
-            // } else{
-            //     sendTokenToUser(user, 200, res)
-            // }
+            if (!_isValid) {
+                res.status(404).json({
+                    success: false,
+                    error: "Invalid credentials"
+                });
+            } else{
+                sendTokenToUser(user, 200, res)
+            }
         }
 
 

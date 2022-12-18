@@ -29,17 +29,18 @@ const cardSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    user_id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+    username: {
+      type: String
     },
     customerId:{
       type: String,
     },
     transaction:{
         tokenId:{type: String, default: null},
-        amount:{type: Number, default:null},
-        description:{type: String, default:null},
+        amount:{type: Number, default:null}
+    },
+    chassis:{
+      type : String
     }
   },
   { timestamps: true }
