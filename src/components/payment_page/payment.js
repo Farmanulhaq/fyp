@@ -12,8 +12,8 @@ const Payment = () => {
     const [cardHolderName, setcardHolderName] = useState("");
 	const [cardNumber, setcardNumber] = useState("");
 	const [cvv, setCVV] = useState("");
-	const [expMonth, setExpMonth] = useState("");
-    const [expYear, setExpYear] = useState("");
+	const [exp_month, setExpMonth] = useState("");
+    const [exp_year, setExpYear] = useState("");
 	const [error, setError] = useState("");
 	const [message, setMessage] = useState("");
 
@@ -25,7 +25,7 @@ const Payment = () => {
 			}
 		}
 			try {
-				const {data} = await axios.post("http://localhost:5000/api/auth/addCard", {cardHolderName, cardNumber, expMonth, expYear,cvv},
+				const {data} = await axios.post("http://localhost:5000/api/auth/payment", {username,cardHolderName, cardNumber, exp_month, exp_year,cvv, chassis},
 				config)
 
 				if(data.success === false){
@@ -159,8 +159,8 @@ const Payment = () => {
                         placeholder="Exp Month" 
                         required 
                         class="name"
-                        id='expmonth'
-                        value={expMonth}
+                        id='exp_month'
+                        value={exp_month}
                         onChange={(e) => setExpMonth(e.target.value)}
                         ></input>
                         <i class="fa fa-calendar icon" aria-hidden="true"></i>
@@ -171,8 +171,8 @@ const Payment = () => {
                     placeholder="Exp Year" 
                     required
                     class="name"
-                    id='expyear'
-					value={expYear}
+                    id='exp_year'
+					value={exp_year}
 					onChange={(e) => setExpYear(e.target.value)}
                     >
                     
