@@ -125,7 +125,7 @@ const Signup = ({history}) => {
 								>
 								</input>
 							</div>
-							<button class="button login__submit butt">
+							<button onClick={() => {nav('/OTP')}} class="button login__submit butt" >
 								<span class="button__text">Create Account</span>
 							</button>
 							<a class='bth1' onClick={() => {nav('/welcome')}}>

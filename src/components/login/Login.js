@@ -17,6 +17,7 @@ const Signin = ({history}) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [error, setError] = useState("");
+	const [modal, setmodal] = useState(false);
 
 	useEffect(() => {
 		if(localStorage.getItem("authToken")){
@@ -56,7 +57,9 @@ const Signin = ({history}) => {
 			}, 5000000);
 		}
 	}
-	
+	const toggleModal = () =>{
+		setmodal(!modal)
+	}
    
 
   return (
@@ -104,7 +107,7 @@ const Signin = ({history}) => {
 					<span class="button__text">Log In Now</span>
 					<i class="button__icon fas fa-chevron-right"></i>
 				</button>				
-				<p class='forget' >Forgot Password?</p>
+				<p class='forget' onClick={() => {nav('/forgetPassword')}}>Forgot Password?</p>
 			</form>
 			<div class="social-login">
 				<h3>log in via</h3>

@@ -12,6 +12,9 @@ import MainScreen from './components/mainscreen/MainScreen';
 import Payment  from './components/payment_page/payment';
 import AdminSignin from './components/admin/adminLogin';
 import AdminHome from './components/admin/adminHome';
+import ForgetPassword from './components/forgetPassword/forgetPassword'
+import ResetPassword from './components/ResetPassword/Rpass'
+import OTP from './components/OTP/OTP'
 // import Contact from './components/contact/Contact'
 
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -66,7 +69,16 @@ function App() {
         <Route exact path='/admin/login' element={<AdminSignin />} />
         </Routes>
         <Routes>
+        <Route exact path='/forgetPassword' element={<ForgetPassword/>} />
+        </Routes>
+        <Routes>
         <Route exact path='/admin/home' element={<AdminHome />} />
+        </Routes>
+        <Routes>
+        <Route exact path='/Rpass' element={<ResetPassword />} />
+        </Routes>
+        <Routes>
+        <Route exact path='/OTP' element={<OTP />} />
         </Routes>
         {/* <Routes>
           <Route path='/' element={<Car />} />
