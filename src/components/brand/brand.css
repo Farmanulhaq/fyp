@@ -1,0 +1,43 @@
+.proj__brand{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.proj__brand div{
+    flex: 1;
+    max-width: 150px;
+    min-width: 120px;
+    margin: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    
+}
+
+.support
+{
+    color: rgb(194, 194, 255);;
+    font-size: 40px;
+    margin-right: 80px;
+    margin-left: -200px;
+}
+
+@media screen and (max-width: 480px),(max-width: 640px),(max-width: 1280)  {
+   
+    .proj__brand
+    {
+        width: 100%;
+    }
+    .proj__brand .img
+    {
+        font-size: 20px;
+    }
+}
